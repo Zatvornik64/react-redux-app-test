@@ -25,12 +25,13 @@ render () {
 
 const mapStateToProps = store => {
   return {
-    mainVisible: store.visible
+    mainVisible: store.visible,
+    items: store.items
   }
 }
 const mapDispatchToProps = dispatch => {
   return {
-    setVisibleAction: visible => dispatch (setVisible(visible)),
+    setVisible: visible => dispatch (setVisible(visible)),
   }
 }
 

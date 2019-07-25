@@ -3,7 +3,7 @@ import {items, visible} from './ItemData.js'
 import { Article2 } from './Article2'
 class Card extends React.Component {
 
-    cardHandler = (evt) => {
+    /*cardHandler = (evt) => {
       if (evt.target.classList.contains('count_sub')) {
         if (items[evt.target.id].count > 0) items[evt.target.id].count--;
         this.forceUpdate();
@@ -25,7 +25,7 @@ class Card extends React.Component {
         item.count = 0;
       });
        this.props.onMenu();
-    }
+    }*/
   
     render() {
       let itemsTemplate = this.props.data.map(function(item) {
