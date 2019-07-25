@@ -11,6 +11,6 @@ export const rootReducer = combineReducers({
 
 
 
-export function rootReducer (sate = initialState) {
+/*export function rootReducer (sate = initialState) {
     return state
-}
+}*/

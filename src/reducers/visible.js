@@ -1,7 +1,7 @@
 import { createStore } from ' redux '
 
 export const initialState = {
-    visible = {
+    visible: {
         list: true,
         card: false,
       },

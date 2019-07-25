@@ -4,13 +4,13 @@ import { Article } from './Article'
 
 class ItemsList extends React.Component {
 
-    /*itemsListHandler = (evt) => {
-      if (evt.target.classList.contains('count_add')) {
-      items[evt.target.id].count++;
-      this.forceUpdate();
-    }}
+    addCountHandler = (evt) => {
+      
+      data[evt.target.id].count++;
+      console.log(data);
+    }
   
-    cardOpenHandler = () => {
+    /*cardOpenHandler = () => {
       visible.list = false;
       visible.card = true;
       this.props.onMenu();
@@ -24,7 +24,7 @@ class ItemsList extends React.Component {
   
       return (
         <React.Fragment>
-        <div className="table_border" onClick={this.itemsListHandler}>
+        <div className="table_border" onClick={this.addCountHandler}>
           <table>
           <tbody>
             <tr>

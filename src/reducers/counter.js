@@ -1,5 +1,5 @@
 const initialState = {
-    items = [
+    items: [
         {
           id: 0,
           name: `Item 1`,
