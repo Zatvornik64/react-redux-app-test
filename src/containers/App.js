@@ -29,13 +29,12 @@ const mapStateToProps = store => {
     items: store.items
   }
 }
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
   return {
     setVisible: visible => dispatch (setVisible(visible)),
   }
-}
+}*/
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(App)
