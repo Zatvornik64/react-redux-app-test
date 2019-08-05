@@ -1,32 +1,33 @@
 import React from 'react';
-import {items, visible} from './ItemData.js'
 import { Article } from './Article'
 
 class ItemsList extends React.Component {
 
-    addCountHandler = (evt) => {
-      
-      data[evt.target.id].count++;
-      console.log(data);
+  
+    cardOpenHandler = (mainvisible) => {
+      this.props.cardOpen(mainvisible)
     }
   
-    /*cardOpenHandler = () => {
-      visible.list = false;
-      visible.card = true;
-      this.props.onMenu();
-    }*/
-  
+    addCountHandler = (evt) => {
+      if (evt.target.classList.contains('count_add')) {
+        const addId = evt.target.id
+        this.props.incCounter(addId, this.props.data)
+    }}
+      
+
+      
     render() {
       let itemsTemplate = this.props.data.map(function(item) {
        return (
          <Article key={item.id} data={item}/>
        )})
   
+
       return (
         <React.Fragment>
-        <div className="table_border" onClick={this.addCountHandler}>
+        <div className="table_border">
           <table>
-          <tbody>
+          <tbody  onClick={this.addCountHandler}>
             <tr>
               <th>Название</th>
               <th>Цена</th>

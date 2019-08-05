@@ -1,44 +1,37 @@
 import React from 'react';
-import {items, visible} from './ItemData.js'
 import { Article2 } from './Article2'
 class Card extends React.Component {
-
-    /*cardHandler = (evt) => {
+   
+    decCountHandler = (evt) => {
       if (evt.target.classList.contains('count_sub')) {
-        if (items[evt.target.id].count > 0) items[evt.target.id].count--;
-        this.forceUpdate();
-      }
+         const decId = evt.target.id
+         this.props.decCounter(decId, this.props.data)
+        }
       if (evt.target.classList.contains('count_null')) {
-        items[evt.target.id].count = 0;
-        this.forceUpdate();
+          const nullId = evt.target.id
+          this.props.nullCounter(nullId, this.props.data)
+         }
       }
+
+    nullAllHandler = (evt) => {
+      this.props.nullAllCounter(this.props.data)
     }
-  
-    itemsListOpenHandler = () => {
-      visible.list = true;
-      visible.card = false;
-      this.props.onMenu();
+    listOpenHandler = (mainvisible) => {
+       this.props.listOpen(mainvisible)
     }
-  
-    dellAllHandler = () => {
-      items.forEach(function(item) {
-        item.count = 0;
-      });
-       this.props.onMenu();
-    }*/
   
     render() {
       let itemsTemplate = this.props.data.map(function(item) {
        return (
          <Article2 key={item.id} data={item}/>
        )})
-  
+       
       return (
         <React.Fragment>
-        <div className="table_border" onClick={this.cardHandler}>
+        <div className="table_border" >
           <table>
-          <tbody>
-            <tr>
+          <tbody  onClick={this.decCountHandler}>
+            <tr >
               <th>Название</th>
               <th>Цена</th>
               <th>Количество</th>
@@ -48,8 +41,8 @@ class Card extends React.Component {
           </tbody>
         </table>
         </div>
-        <button className="card_btn card_button" onClick={this.itemsListOpenHandler}>Список покупок</button>
-        <button className="card_btn card_button" onClick={this.dellAllHandler}>Очистить все</button>
+        <button className="card_btn card_button" onClick={this.listOpenHandler}>Список покупок</button>
+        <button className="card_btn card_button" onClick={this.nullAllHandler}>Очистить все</button>
         </React.Fragment>
       )
     }}
