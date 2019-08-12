@@ -5,7 +5,7 @@ import { ItemsList } from '../components/ItemsList'
 import { Card } from '../components/Card'
 import { incCounter, decCounter, nullCounter, nullAllCounter } from '../actions/counter'
 import { cardOpen, listOpen } from '../actions/visible'
-class App extends React.PureComponent {
+class App extends React.Component {
   
 render () {
   
