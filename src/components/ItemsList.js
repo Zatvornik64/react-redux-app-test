@@ -1,7 +1,7 @@
 import React from 'react';
 import { Article } from './Article'
 
-class ItemsList extends React.Component {
+class ItemsList extends React.PureComponent {
 
   
     cardOpenHandler = (mainvisible) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Article2 } from './Article2'
-class Card extends React.Component {
+class Card extends React.PureComponent {
    
     decCountHandler = (evt) => {
       if (evt.target.classList.contains('count_sub')) {
