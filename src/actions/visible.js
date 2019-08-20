@@ -1,21 +1,15 @@
-export function cardOpen(mainvisible) {
-    mainvisible= {
-        list: false,
-        card: true,
-    }
+export function toCardOpen() {
+   const cardOpen = true;
      return {
         type: 'CARD_OPEN',
-        payload: mainvisible,
+        payload: cardOpen,
       }
 }
 
-export function listOpen(mainvisible) {
-    mainvisible= {
-            list: true,
-            card: false,
-    }
+export function toListOpen() {
+    const cardOpen = false;
     return {
             type: 'LIST_OPEN',
-            payload: mainvisible,
+            payload: cardOpen,
     }
 }

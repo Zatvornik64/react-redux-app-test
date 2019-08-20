@@ -1,25 +1,23 @@
 import React from 'react';
-import { Article } from './Article'
+import '../css/ItemsList.css';
+import { ItemListArticle } from './ItemListArticle'
 
-class ItemsList extends React.PureComponent {
+class ItemsList extends React.Component {
 
   
-    cardOpenHandler = (mainvisible) => {
-      this.props.cardOpen(mainvisible)
+    cardOpenHandler = () => {
+      this.props.toCardOpen()
     }
   
     addCountHandler = (evt) => {
-      if (evt.target.classList.contains('count_add')) {
         const addId = evt.target.id
         this.props.incCounter(addId, this.props.data)
-    }}
-      
-
-      
+    }
+          
     render() {
-      let itemsTemplate = this.props.data.map(function(item) {
+      let itemsTemplate = this.props.data.map((item) => {
        return (
-         <Article key={item.id} data={item}/>
+         <ItemListArticle countSubHandler={this.addCountHandler} key={item.id} data={item}/>
        )})
   
 
@@ -27,7 +25,7 @@ class ItemsList extends React.PureComponent {
         <React.Fragment>
         <div className="table_border">
           <table>
-          <tbody  onClick={this.addCountHandler}>
+          <tbody  >
             <tr>
               <th>Название</th>
               <th>Цена</th>

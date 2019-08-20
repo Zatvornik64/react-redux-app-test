@@ -1,8 +1,5 @@
 export const initialState = {
-  mainvisible: {
-      list: false,
-      card: true,
-    },
+  cardOpen : false,
     items: [
       {
         id: 0,
@@ -47,10 +44,10 @@ export const initialState = {
         return { ...state, items: action.payload };
 
       case 'CARD_OPEN':
-        return { ...state, mainvisible: action.payload };
+        return { ...state, cardOpen: action.payload };
         
       case 'LIST_OPEN':
-          return { ...state, mainvisible: action.payload };
+          return { ...state, cardOpen: action.payload };
           
       default:
         return state

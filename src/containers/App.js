@@ -1,27 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import './App.css';
 import { ItemsList } from '../components/ItemsList'
 import { Card } from '../components/Card'
 import { incCounter, decCounter, nullCounter, nullAllCounter } from '../actions/counter'
-import { cardOpen, listOpen } from '../actions/visible'
+import { toCardOpen, toListOpen } from '../actions/visible'
 class App extends React.Component {
   
 render () {
   
   return (
       <React.Fragment>
-        { this.props.mainvisible.list && <ItemsList  
+        { !this.props.cardOpen && <ItemsList  
               data={this.props.items} 
               incCounter={this.props.incCounter}
-              cardOpen={this.props.cardOpen}  />}
+              toCardOpen={this.props.toCardOpen}  />}
         
-        { this.props.mainvisible.card && <Card 
+        { this.props.cardOpen && <Card 
                 data={this.props.items} 
                 decCounter={this.props.decCounter} 
                 nullCounter={this.props.nullCounter}
                 nullAllCounter={this.props.nullAllCounter} 
-                listOpen={this.props.listOpen} /> }
+                toListOpen={this.props.toListOpen} /> }
       </React.Fragment>
     )
   }
@@ -29,7 +28,7 @@ render () {
 }
 const mapStateToProps = store => {
   return {
-    mainvisible: store.mainvisible,
+    cardOpen: store.cardOpen,
     items: store.items
   }
 }
@@ -39,8 +38,8 @@ const mapDispatchToProps = dispatch => {
   decCounter: (id, items) => dispatch(decCounter(id, items)),
   nullCounter: (id, items) => dispatch(nullCounter(id, items)),
   nullAllCounter: (items) => dispatch(nullAllCounter(items)),
-  cardOpen: (mainvisible) => dispatch(cardOpen(mainvisible)),
-  listOpen: (mainvisible) => dispatch(listOpen(mainvisible)),
+  toCardOpen: (cardOpen) => dispatch(toCardOpen(cardOpen)),
+  toListOpen: (cardOpen) => dispatch(toListOpen(cardOpen)),
   }
   }
   
